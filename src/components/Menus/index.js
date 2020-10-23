@@ -4,16 +4,15 @@ import { Menu } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
-const categories = ['首页','iOS','Python','ReactJs']
 const menus = [
 	{
         key: '/',
-		title: '首页',
+		title: '添加角色',
 		icon: 'page'
 
 	}, {
         key: '/iOS',
-		title: 'iOS',
+		title: '删除角色',
 		icon: 'message'
 	}
 ]
@@ -40,26 +39,21 @@ export default class Menus extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="nav">
-                    <Menu
-                        onClick={this.handleClick}
-                        // selectedKeys={[this.state.current]}
-                        defaultSelectedKeys={['1']}
-        				defaultOpenKeys={['sub1']}
-                        mode="horizontal"
-                        className="menucontainer"
-                    >
-                        {
-        					menus.map(item => {
-        						// return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
-        						return this.renderMenuItem(item);
-        					})
-        				}
-                    </Menu>
-                </div>
-                { this.props.children }
-            </div>
+            <Menu
+                onClick={this.handleClick}
+                // selectedKeys={[this.state.current]}
+                defaultSelectedKeys={['1']}
+				defaultOpenKeys={['sub1']}
+                mode="horizontal"
+                className="menucontainer"
+            >
+                {
+					menus.map(item => {
+						// return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
+						return this.renderMenuItem(item);
+					})
+				}
+            </Menu>
         )
     }
 }
