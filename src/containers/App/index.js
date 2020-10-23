@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-// import style from './App.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Menus from '../../components/Menus';
+import AddUser from '../AddUser';
+import Detail from '../Detail';
 import './index.css';
-import Header from '../../components/Header'
-import Menus from '../../components/Menus'
+// import Routes from './routes';
 
 class Home extends Component {
     render() {
         return (
-            <div className="container">
-                <Header />
-                <div className="nav"><Menus /></div>
-            </div>
+            <Router>
+                <Menus>
+                    <Route exact path='/' component={AddUser}/>
+                    <Route path='/iOS/' component={Detail}/>
+                </Menus>
+            </Router>
         )
     }
 };
