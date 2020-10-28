@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-class Detail extends Component {
+class Auth extends Component {
     render() {
         return(
-            <h1>Detail</h1>
+            <h1>权限管理</h1>
         )
     }
 }
 
-export default Detail;
+export default Auth;

@@ -18,7 +18,7 @@ const tailLayout = {
     }
 };
 
-class AddUser extends Component {
+class About extends Component {
     render() {
         const onFinish = (values) => {
             console.log('Success:', values);
@@ -58,4 +58,4 @@ class AddUser extends Component {
     }
 }
 
-export default AddUser;
+export default About;

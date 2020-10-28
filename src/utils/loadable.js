@@ -1,10 +1,11 @@
 import React from 'react';
 import Loadable from 'react-loadable';
+import {Spin, Alert} from 'antd';
 
 //通用的过场组件
 const loadingComponent =()=>{
     return (
-        <div>loading</div>
+        <Spin tip="Loading..."  size="large" />
     )
 }
 

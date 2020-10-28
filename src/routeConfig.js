@@ -3,9 +3,9 @@ import loadable from './utils/loadable';
 const routeConfig = [
     {
         path: '/',
-		name: '概览',
+		name: '首页',
 		icon: 'plus-square-o',
-        component: loadable(() => import('./pages/Home'))
+        component: loadable(() => import('./pages/home'))
 	}, {
 		path: '/userManagement',
 		name: '用户管理',
@@ -15,19 +15,19 @@ const routeConfig = [
                 path: '/userManagement/management',
         		name: '管理用户',
         		icon: 'user-o',
-                component: loadable(() => import('./pages/UserManagement'))
+                component: loadable(() => import('./pages/userManagement'))
             }, {
                 path: '/userManagement/auth',
         		name: '权限管理',
         		icon: 'user-o',
-                component: loadable(() => import('./pages/Detail'))
+                component: loadable(() => import('./pages/auth'))
             }
         ]
 	}, {
-        path: '/iOS',
-		name: '其它',
+        path: '/about',
+		name: '关于',
 		icon: 'minus-square-o',
-        component: loadable(() => import('./pages/Detail'))
+        component: loadable(() => import('./pages/about'))
 	}
 ];
 

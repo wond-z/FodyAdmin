@@ -1,19 +1,53 @@
+/**
+ * @file 内容展示
+ * @author wond-z
+ */
+
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import Welcome from '../../pages/Welcome';
-import UserManagement from '../../pages/UserManagement';
+import routeConfig from '../../routeConfig';
 
 class ContentMain extends React.Component {
+	/**
+	 * 渲染路由
+	 * @param  {String} path      路径
+	 * @param  {String} name      名称
+	 * @param  {String} icon      图标
+	 * @param  {Function} component 组件
+	 * @return {[type]}           渲染内容
+	 */
+	renderRouteItem = ({path, name, icon, component}) => {
+		return (
+			<Route exact key={path} path={path} component={component}/>
+		)
+	}
+
+	/**
+	 * 渲染子路由
+	 * @param  {Array} children 子路由数组
+	 * @return {[type]}          渲染内容
+	 */
+	renderSubRoute = ({children}) => {
+		return (
+			children && children.map(item => {
+				return this.renderRouteItem(item)
+			})
+		)
+	}
+
 	render() {
 		return (
-			<div>
-				<Switch>
-                    <Route exact path='/' component={Welcome}/>
-					<Route path='/userManagement/management' component={UserManagement}/>
-				</Switch>
-			</div>
+			<Switch>
+				{
+					routeConfig.map(item => {
+						return item.children && item.children.length > 0
+						? this.renderSubRoute(item)
+						: this.renderRouteItem(item)
+					})
+				}
+			</Switch>
 		)
 	}
 }
 
-export default ContentMain
+export default ContentMain;

@@ -51,7 +51,7 @@ class SideMenus extends React.Component {
 				}
 			} else {
 				if (list[i]['children']) {
-					for (let j = 0; i < list[i]['children'].length; j++ ) {
+					for (let j = 0; j < list[i]['children'].length; j++ ) {
 						if (list[i]['children'][j]['path'] === currentPath) {
 							return list[i]['children'];
 						}

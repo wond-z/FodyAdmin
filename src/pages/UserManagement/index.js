@@ -45,7 +45,7 @@ const layout = {
         span: 6
     },
     wrapperCol: {
-        span: 17
+        span: 18
     }
 };
 
@@ -90,41 +90,42 @@ export default class UserManagement extends Component {
             console.log(values);
         };
 
-        return (<div>
-            <Space direction="vertical">
+        return (
+            <Space direction="vertical" style={{width: '100%'}}>
                 <Button type="primary" onClick={this.showModal}>添加用户</Button>
                 <Table columns={columns} dataSource={dataSource}/>
+
+                <Modal title="添加用户" visible={this.state.visible} onOk={this.handleOk} onCancel={this.handleCancel}>
+                    <Form {...layout} name="add-user" ref="addUser" validateMessages={validateMessages}>
+                        <Form.Item name={['user', 'name']} label="姓名" rules={[{required: true}]}>
+                            <Input/>
+                        </Form.Item>
+                        <Form.Item name={['user', 'email']} label="邮箱" rules={[{required: true}, {type: 'email'}]}>
+                            <Input/>
+                        </Form.Item>
+                        {/* <Form.Item name={['user', 'age']} label="Age" rules={[{
+                                    type: 'number',
+                                    min: 0,
+                                    max: 99
+                                }
+                            ]}>
+                            <InputNumber/>
+                        </Form.Item> */}
+                        <Form.Item name={['user', 'password']} label="密码" rules={[{required: true}]}>
+                            <Input.Password placeholder="请输入密码" />
+                        </Form.Item>
+                        <Form.Item name={['user', 'repassword']} label="确认密码" rules={[{required: true}]}>
+                            <Input.Password placeholder="请再次输入密码" />
+                        </Form.Item>
+                        <Form.Item name={['user', 'website']} label="个人网站">
+                            <Input/>
+                        </Form.Item>
+                        <Form.Item name={['user', 'introduction']} label="个人描述">
+                            <Input.TextArea/>
+                        </Form.Item>
+                    </Form>
+                </Modal>
             </Space>
-            <Modal title="添加用户" visible={this.state.visible} onOk={this.handleOk} onCancel={this.handleCancel}>
-                <Form {...layout} name="add-user" ref="addUser" validateMessages={validateMessages}>
-                    <Form.Item name={['user', 'name']} label="姓名" rules={[{required: true}]}>
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item name={['user', 'email']} label="邮箱" rules={[{required: true}, {type: 'email'}]}>
-                        <Input/>
-                    </Form.Item>
-                    {/* <Form.Item name={['user', 'age']} label="Age" rules={[{
-                                type: 'number',
-                                min: 0,
-                                max: 99
-                            }
-                        ]}>
-                        <InputNumber/>
-                    </Form.Item> */}
-                    <Form.Item name={['user', 'password']} label="密码" rules={[{required: true}]}>
-                        <Input.Password placeholder="请输入密码" />
-                    </Form.Item>
-                    <Form.Item name={['user', 'repassword']} label="确认密码" rules={[{required: true}]}>
-                        <Input.Password placeholder="请再次输入密码" />
-                    </Form.Item>
-                    <Form.Item name={['user', 'website']} label="个人网站">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item name={['user', 'introduction']} label="个人描述">
-                        <Input.TextArea/>
-                    </Form.Item>
-                </Form>
-            </Modal>
-        </div>)
+        )
     }
 }

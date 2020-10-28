@@ -16,19 +16,19 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <Layout>
-                    <Header>
-                        <Menus />
-                    </Header>
+                <Layout style={{ minHeight: '100vh' }}>
+                    <Sider>
+                        <SideMenus />
+                    </Sider>
                     <Layout>
-                        <Sider>
-                            <SideMenus />
-                        </Sider>
-                        <Content>
+                        <Header>
+                            <Menus />
+                        </Header>
+                        <Content style={{ padding: 24, minHeight: 360 }}>
                             <ContentMain />
                         </Content>
+                        <Footer style={{ textAlign: 'center' }}>FodyAdmin ©2020 Created by Wond-Z</Footer>
                     </Layout>
-                    {/* <Footer>Footer</Footer> */}
                 </Layout>
             </Router>
         )
