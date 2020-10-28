@@ -1,15 +1,15 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import AddUser from '../../pages/AddUser';
-import Detail from '../../pages/Detail';
+import Welcome from '../../pages/Welcome';
+import UserManagement from '../../pages/UserManagement';
 
 class ContentMain extends React.Component {
 	render() {
 		return (
 			<div>
 				<Switch>
-                    <Route exact path='/' component={AddUser}/>
-                    <Route path='/iOS/' component={Detail}/>
+                    <Route exact path='/' component={Welcome}/>
+					<Route path='/userManagement/management' component={UserManagement}/>
 				</Switch>
 			</div>
 		)

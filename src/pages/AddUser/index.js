@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import {Form, Input, Button, Radio, Select, Checkbox} from 'antd';
 import {SettingOutlined} from '@ant-design/icons';
 const {Option} = Select;

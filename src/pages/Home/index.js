@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-class Detail extends Component {
+class Home extends Component {
     render() {
         return(
-            <h1>Detail</h1>
+            <h1>Welcome, wond-z</h1>
         )
     }
 }
 
-export default Detail;
+export default Home;
