@@ -1,3 +1,50 @@
 .ant-layout-header {
     padding: 0;
 }
+
+.logo {
+    float: left;
+    width: 170px;
+    height: 31px;
+    margin: 16px 15px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.tools {
+    float: right;
+    height: 31px;
+    line-height: 31px;
+    margin: 16px 15px 16px 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+.layout-main {
+    padding: 18px 18px;
+}
+
+.layout-content {
+    padding: 24px;
+    minHeight: 360px;
+    background: #fff;
+}
+
+.error {
+    margin: auto;
+    width: 400px;
+    padding-top: 245px;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    background: #fff url(/image/404.png) 0 0 no-repeat;
+    background-size: 100% auto;
+}
+
+.error .remind {
+    margin: 30px 0;
+}
+
+.error .button {
+    color: #EA9E1C;
+    border-color: #EA9E1C;
+}

@@ -7,20 +7,20 @@ const routeConfig = [
 		icon: 'plus-square-o',
         component: loadable(() => import('./pages/home'))
 	}, {
-		path: '/userManagement',
+		path: '/user',
 		name: '用户管理',
 		icon: 'user-o',
         children: [
             {
-                path: '/userManagement/management',
+                path: '/user/management',
         		name: '管理用户',
         		icon: 'user-o',
-                component: loadable(() => import('./pages/userManagement'))
+                component: loadable(() => import('./pages/user'))
             }, {
-                path: '/userManagement/auth',
+                path: '/user/auth',
         		name: '权限管理',
         		icon: 'user-o',
-                component: loadable(() => import('./pages/auth'))
+                component: loadable(() => import('./pages/user/auth'))
             }
         ]
 	}, {

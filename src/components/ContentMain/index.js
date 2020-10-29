@@ -4,8 +4,9 @@
  */
 
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import routeConfig from '../../routeConfig';
+import Error from '../Error';
 
 class ContentMain extends React.Component {
 	/**
@@ -45,6 +46,8 @@ class ContentMain extends React.Component {
 						: this.renderRouteItem(item)
 					})
 				}
+				<Route path="*" component={ Error } />
+				{/* <Redirect from="/*" to="/error" component={Error} /> */}
 			</Switch>
 		)
 	}

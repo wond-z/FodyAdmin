@@ -6,7 +6,6 @@
 import React from 'react';
 import {Link, withRouter } from 'react-router-dom';
 import { Menu } from 'antd';
-import 'font-awesome/css/font-awesome.css';
 import routeConfig from '../../routeConfig';
 
 class SideMenus extends React.Component {
@@ -59,6 +58,8 @@ class SideMenus extends React.Component {
 				}
 			}
 		}
+		// 如果当前路由不存在，则返回
+		return [];
 	}
 
     handleClick = (e) => {

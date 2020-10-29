@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { Menu } from 'antd';
-import 'font-awesome/css/font-awesome.css';
 import 'antd/dist/antd.css';
 import routeConfig from '../../routeConfig';
 
@@ -35,6 +34,7 @@ export default class Menus extends Component {
 				defaultOpenKeys={['sub1']}
                 mode="horizontal"
                 className="menucontainer"
+                theme="dark"
             >
                 {
 					routeConfig.map(item => {
