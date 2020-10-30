@@ -4,7 +4,7 @@
  */
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Layout } from 'antd';
 import Menus from '../components/Menus';
 import SideMenus from '../components/SideMenus';
@@ -14,6 +14,19 @@ import './app.css';
 
 const { Header, Footer, Sider, Content } = Layout;
 class App extends Component {
+    constructor(){
+        super();
+        this.state = {
+            sideMenuConfig: ''
+        }
+    }
+
+    getSubMenuConfig(list) {
+        this.setState({
+            sideMenuConfig: list
+        });
+    }
+
     render() {
         return (
             <Router>
@@ -21,11 +34,11 @@ class App extends Component {
                     <Header>
                         <div className="logo" />
                         <div className="tools">登录</div>
-                        <Menus />
+                        <Menus submenu={this.getSubMenuConfig.bind(this)} />
                     </Header>
                     <Layout>
                         <Sider>
-                            <SideMenus />
+                            <SideMenus sideMenuConfig={this.state.sideMenuConfig} />
                         </Sider>
                         <Layout className="layout-main">
                             <Content className="layout-content">

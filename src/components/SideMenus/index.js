@@ -11,56 +11,63 @@ import routeConfig from '../../routeConfig';
 class SideMenus extends React.Component {
 	constructor(props) {
 		super(props);
-
+		console.log(this)
 		// 设置初始侧栏菜单状态
-		this.state = {sideMenuConfig: this.getSideMenuConfig(routeConfig)};
+		this.state = {sideMenuConfig: this.getSideMenuConfig(this.props.location.pathname)};
 	}
 
 	/**
-	 * 在第一次渲染后调用，只在客户端
+	 * React新生命周期 - 从props中获取state
+	 * @param  {Object} nextProps 现在的prop
+	 * @param  {Object} prevState 重新渲染之前的state值
+	 * @return {Array}           更新state值
 	 */
-	componentDidMount() {
-		// console.log(this.props);
-
-		// 监听路由变化
-	    this.props.history.listen(() => {
-			// 重新渲染
-			this.setState({
-				sideMenuConfig: this.getSideMenuConfig(routeConfig)
-			});
-	    })
-
-	}
-
-	/**
-	 * 获取侧栏菜单路由配置
-	 * @param  {Array} list 路由配置
-	 * @return {Array}      侧栏路由配置
-	 */
-	getSideMenuConfig = (list) => {
-		// 当前路由path
-		let currentPath = this.props.history.location.pathname;
-		for (let i = 0; i < list.length; i++ ) {
-			if (list[i]['path'] === currentPath) {
-				if (list[i]['children']) {
-					return list[i]['children'];
-				} else {
-					// 以数组形式返回路由配置项
-					return [list[i]];
-				}
-			} else {
-				if (list[i]['children']) {
-					for (let j = 0; j < list[i]['children'].length; j++ ) {
-						if (list[i]['children'][j]['path'] === currentPath) {
-							return list[i]['children'];
-						}
-					}
-				}
+	static getDerivedStateFromProps(nextProps, prevState) {
+		console.log('props: ', nextProps);
+		console.log('prev: ', prevState);
+		const { sideMenuConfig } = nextProps;
+	    // 当传入的sideMenuConfig发生变化的时候，更新state
+	    if (sideMenuConfig !== prevState.sideMenuConfig) {
+			// 初次渲染时从父页面带过来的sideMenuConfig为空，需要使用初值
+			if (sideMenuConfig) {
+				return {
+		            sideMenuConfig,
+		        };
 			}
-		}
-		// 如果当前路由不存在，则返回
-		return [];
+	    }
+	    return prevState.sideMenuConfig;
 	}
+
+	/**
+     * 获取侧栏菜单路由配置
+     * @param  {String} currentPath 当前路由地址
+     * @return {Array}      侧栏路由配置
+     */
+    getSideMenuConfig = (currentPath) => {
+        // 当前路由path
+        // let currentPath = this.props.history.location.pathname;
+        let list = routeConfig;
+        for (let i = 0; i < list.length; i++ ) {
+            if (list[i]['path'] === currentPath) {
+                if (list[i]['children']) {
+                    return list[i]['children'];
+                } else {
+                    // 以数组形式返回路由配置项
+                    return [list[i]];
+                }
+            } else {
+                if (list[i]['children']) {
+                    for (let j = 0; j < list[i]['children'].length; j++ ) {
+                        if (list[i]['children'][j]['path'] === currentPath) {
+                            return list[i]['children'];
+                        }
+                    }
+                }
+            }
+        }
+        // 如果当前路由不存在，则返回
+        return [];
+    }
 
     handleClick = (e) => {
         // console.log('MenuList click: ', e);
@@ -92,6 +99,7 @@ class SideMenus extends React.Component {
 						return this.renderMenuItem(item);
 					})
 				}
+				{this.state.sideMenuConfig.toString()}
             </Menu>
 		)
 	}

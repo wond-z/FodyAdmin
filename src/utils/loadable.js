@@ -1,6 +1,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import {Spin, Alert} from 'antd';
+import { Spin } from 'antd';
 
 //通用的过场组件
 const loadingComponent =()=>{

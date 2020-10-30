@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {Form, Input, Button, Radio, Select, Checkbox} from 'antd';
-import {SettingOutlined} from '@ant-design/icons';
-const {Option} = Select;
+import {Form, Input, Button, Checkbox} from 'antd';
 
 const layout = {
     labelCol: {
@@ -44,7 +42,7 @@ class About extends Component {
                         message: '请输入密码！'
                     }
                 ]}>
-                <Input.Password/>
+                <Input.Password autoComplete="true" />
             </Form.Item>
 
             <Form.Item {...tailLayout} name="remember" valuePropName="checked">

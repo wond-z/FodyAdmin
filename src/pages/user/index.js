@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import {
     Table,
-    Tag,
     Space,
     Modal,
     Button,
     Form,
-    Input,
-    InputNumber
+    Input
 } from 'antd';
 
 const dataSource = [
@@ -86,9 +84,9 @@ export default class UserManagement extends Component {
     };
 
     render() {
-        const onFinish = (values) => {
-            console.log(values);
-        };
+        // const onFinish = (values) => {
+        //     console.log(values);
+        // };
 
         return (
             <Space direction="vertical" style={{width: '100%'}}>
