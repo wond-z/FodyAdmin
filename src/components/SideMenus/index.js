@@ -23,8 +23,6 @@ class SideMenus extends React.Component {
 	 * @return {Array}           更新state值
 	 */
 	static getDerivedStateFromProps(nextProps, prevState) {
-		console.log('props: ', nextProps);
-		console.log('prev: ', prevState);
 		const { sideMenuConfig } = nextProps;
 	    // 当传入的sideMenuConfig发生变化的时候，更新state
 	    if (sideMenuConfig !== prevState.sideMenuConfig) {
@@ -99,7 +97,6 @@ class SideMenus extends React.Component {
 						return this.renderMenuItem(item);
 					})
 				}
-				{this.state.sideMenuConfig.toString()}
             </Menu>
 		)
 	}

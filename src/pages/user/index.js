@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-    Table,
-    Space,
-    Modal,
-    Button,
-    Form,
-    Input
-} from 'antd';
+import { Table, Space, Modal, Button, Form, Input } from 'antd';
 
 const dataSource = [
     {
